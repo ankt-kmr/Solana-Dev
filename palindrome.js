@@ -1,31 +1,16 @@
-function largestPalindrome(){
+const readline = require('readline');
 
-   var arr = [];    
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-    for(var i =999; i>100; i--){
+rl.question('Please enter potential palindrome: ', checkForPalindrome);
 
-        for(var j = 999; j>100; j--){
-
-            var mul = j*i;
-
-            if(isPalin(mul)){
-
-                arr.push(j * i);
-
-            }
-
-        }
-
+function checkForPalindrome(s) {
+    if (s == s.split("").reverse().join("")) {
+        console.log(s, "is a Palindrome");
+    } else {
+        console.log(s, "Not a Palindrome");
     }
-
-    return Math.max.apply(Math, arr);
-
 }
-
-function isPalin(i){
-
-    return i.toString() == i.toString().split("").reverse().join("");
-
-}
-
-console.log(largestPalindrome());
